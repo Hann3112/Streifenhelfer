@@ -331,6 +331,15 @@
         ]
       },
 
+      'bepo': {
+        title: 'BePo',
+        type: 'buttons',
+        items: [
+          { label: 'Bereitschaftspolizei (Funk)', target: 'bepo_funk' },
+          { label: 'KB Ausfüllhilfe', target: 'kb_ausfuellhilfe' }
+        ]
+      },
+
       // --- VERKEHRSKONTROLLE ---
       'vk': {
         title: 'Verkehrskontrolle',
@@ -340,7 +349,6 @@
           { label: 'LKW', target: 'vk_lkw' },
           { label: 'Motorrad', target: 'vk_motorrad' },
           { label: 'Ausländische Fahrerlaubnis', target: 'vk_ausland' },
-          { label: 'Gewerblicher Güterverkehr', target: 'vk_gewerbe' },
           { label: 'E-Scooter', target: 'vk_escooter' },
           { label: 'Fahrrad', target: 'vk_fahrrad' }
         ]
@@ -352,7 +360,7 @@
           { label: 'Technische Kontrolle', target: 'pkw_tech' },
           { label: 'Dokumentenkontrolle', target: 'pkw_doku' },
           { label: 'Alkohol/Drogen', target: 'pkw_alk' },
-          { label: 'Personenkontrolle', target: 'pkw_person' },
+          { label: 'häufige OWIs', target: 'pkw_owi' },
           { label: 'TÜV', target: 'pkw_tuev' }
         ]
       },
@@ -375,6 +383,19 @@
         items: [
           { label: 'Führerschein', target: 'fs_fehlt' },
           { label: 'Fahrzeugschein', target: 'fzs_fehlt' }
+        ]
+      },
+      'pkw_owi': {
+        title: 'häufige OWIs (PKW)',
+        type: 'cards',
+        items: [
+          { label: 'Handy verwendet', val: '(123624) 100€ 1 Punkt' },
+          { label: 'nicht angeschnallt', val: '(121172) 30€' },
+          { label: 'fehlende Ladungssicherung', val: '(122100) 35€' },
+          { label: 'Haltegebot nicht befolgt', val: '(136606) 70€ 1 Punkt' },
+          { label: 'Erste-Hilfe Material nicht mitgeführt', val: '(335124) 5€' },
+          { label: 'Warnweste nicht mitgeführt', val: '(353000) 15€' },
+          { label: 'Warndreieck nicht mitgeführt', val: '(353106) 15€' }
         ]
       },
       'pkw_alk': {
@@ -469,6 +490,14 @@
           { label: 'Licht defekt/ nicht vorhanden', val: '(123136) 20€' }
         ]
       },
+      'lkw_doku': {
+        title: 'Dokumentenkontrolle (LKW)',
+        type: 'doc_buttons',
+        items: [
+          { label: 'Führerschein', target: 'fs_fehlt' },
+          { label: 'Fahrzeugschein', target: 'fzs_fehlt' }
+        ]
+      },
       'lkw_ladung': {
         title: 'Ladungssicherung (LKW)',
         type: 'cards',
@@ -509,6 +538,7 @@
       'tarnschieber': {
         title: 'Tarnschieber',
         type: 'cards',
+        hasSearch: true,
         items: [
           { label: '014', val: 'Einsatzleitung' },
           { label: '015', val: 'Dienststelle' },
@@ -667,6 +697,24 @@
         extraButton: { label: 'EHU (Leo Leine)', target: 'ehu_leo_leine' }
       },
 
+      'kb_ausfuellhilfe': {
+        title: 'KB Ausfüllhilfe',
+        type: 'buttons',
+        items: [
+          { label: 'Button 1', img: 'bild1.png' },
+          { label: 'Button 2', img: 'bild2.png' },
+          { label: 'Button 3', img: 'bild3.png' },
+          { label: 'Button 4', img: 'bild4.png' },
+          { label: 'Button 5', img: 'bild5.png' },
+          { label: 'Button 6', img: 'bild6.png' },
+          { label: 'Button 7', img: 'bild7.png' },
+          { label: 'Button 8', img: 'bild8.png' },
+          { label: 'Button 9', img: 'bild9.png' },
+          { label: 'Button 10', img: 'bild10.png' },
+          { label: 'Button 11', img: 'bild11.png' }
+        ]
+      },
+
       'sek_mek': {
         title: 'SEK/MEK',
         type: 'cards',
@@ -733,8 +781,8 @@
         hasSearch: true,
         items: [
           { label: 'Leitstelle', val: 'Otto' },
-          { label: 'ESD 1 (Friedhofsweg)', val: 'Orion 11/01' },
-          { label: 'ESD 2 (Wallstraße)', val: 'Orion 12/01' },
+          { label: 'ESD I Oldenburg (Friedhofsweg)', val: 'Orion 11/01' },
+          { label: 'ESD II Oldenburg (Wallstraße)', val: 'Orion 12/01' },
           { label: 'VUD Oldenburg', val: 'Orion 13/01' },
           { label: 'Citywache', val: 'Orion 20/01' },
           { label: 'Ofenerdiek', val: 'Orion 14/01' },
@@ -742,12 +790,12 @@
           { label: 'Kreyenbrück', val: 'Orion 16/01' },
           { label: 'Bloherfelde', val: 'Orion 17/01' },
           { label: 'Ohmstede', val: 'Orion 18/01' },
-          { label: 'Autobahnpolizei (Rastede)', val: 'Orion 19/01' },
+          { label: 'PK BAB (Rastede)', val: 'Orion 19/01' },
           { label: 'Westerstede', val: 'Orion 41/01' },
+          { label: 'Apen', val: 'Orion 45/01' },
           { label: 'Bad Zwischenahn', val: 'Orion 42/01' },
           { label: 'Rastede', val: 'Orion 43/01' },
           { label: 'Wiefelstede', val: 'Orion 44/01' },
-          { label: 'Apen', val: 'Orion 45/01' },
           { label: 'Edewecht', val: 'Orion 46/01' }
         ]
       },
@@ -758,6 +806,11 @@
         items: [
           { label: 'Leitstelle', val: 'Otto' },
           { label: 'Delmenhorst', val: 'Delme 26/01' },
+          { label: 'Brake', val: 'Delme 31/01' },
+          { label: 'Berne', val: 'Delme 32/01' },
+          { label: 'Elsfleth', val: 'Delme 33/01' },
+          { label: 'Lemwerder', val: 'Delme 34/01' },
+          { label: 'Ovelgönne', val: 'Delme 35/01' },
           { label: 'Wildeshausen', val: 'Delme 41/01' },
           { label: 'Ganderkesee', val: 'Delme 42/01' },
           { label: 'Großenkneten', val: 'Delme 43/01' },
@@ -767,15 +820,11 @@
           { label: 'Hatten/Sandkrug', val: 'Delme 47/01' },
           { label: 'Dötlingen', val: 'Delme 48/01' },
           { label: 'Bookholzberg', val: 'Delme 49/01' },
-          { label: 'Brake', val: 'Bake 31/01' },
-          { label: 'Elsfleth', val: 'Bake 33/01' },
-          { label: 'Berne', val: 'Bake 32/01' },
-          { label: 'Ovelgönne', val: 'Bake 35/01' },
-          { label: 'Lemwerder', val: 'Bake 34/01' },
-          { label: 'Nordenham', val: 'Bake 51/01' },
-          { label: 'Butjadingen', val: 'Bake 52/01' },
-          { label: 'Jade', val: 'Bake 53/01' },
-          { label: 'Stadland', val: 'Bake 54/01' }
+          { label: 'Nordenham', val: 'Delme 51/01' },
+          { label: 'Butjadingen', val: 'Delme 52/01' },
+          { label: 'Jade', val: 'Delme 53/01' },
+          { label: 'Stadtland', val: 'Delme 54/01' },
+          { label: 'PK BAB (Ahlhorn)', val: 'Delme 19/01' }
         ]
       },
       'pi_whv': {
@@ -786,15 +835,14 @@
           { label: 'Leitstelle', val: 'Otto' },
           { label: 'Wilhelmshaven', val: 'Genius 11/01' },
           { label: 'Fedderwardergroden', val: 'Genius 12/01' },
-          { label: 'Wiesenhof', val: 'Genius 13/01' },
+          { label: 'Jever', val: 'Genius 26/01' },
+          { label: 'Wangerland', val: 'Genius 28/01' },
+          { label: 'Schortens', val: 'Genius 29/01' },
+          { label: 'Wangerooge', val: 'Genius 31/01' },
+          { label: 'Sande', val: 'Genius 33/01' },
           { label: 'Varel', val: 'Genius 27/01' },
           { label: 'Bockhorn', val: 'Genius 30/01' },
-          { label: 'Zetel', val: 'Genius 34/01' },
-          { label: 'Jever', val: 'Genius 26/01' },
-          { label: 'Schortens', val: 'Genius 29/01' },
-          { label: 'Sande', val: 'Genius 33/01' },
-          { label: 'Wangerland-Hohenkirchen', val: 'Genius 28/01' },
-          { label: 'Wangerooge', val: 'Genius 31/01' }
+          { label: 'Zetel', val: 'Genius 34/01' }
         ]
       },
       'pi_clp': {
@@ -804,8 +852,28 @@
         items: [
           { label: 'Leitstelle', val: 'Otto' },
           { label: 'Cloppenburg', val: 'Soeste 11/01' },
+          { label: 'Cappeln', val: 'Soeste 12/01' },
+          { label: 'Emstek', val: 'Soeste 13/01' },
+          { label: 'Garrel', val: 'Soeste 14/01' },
+          { label: 'Molbergen', val: 'Soeste 15/01' },
+          { label: 'Löningen', val: 'Soeste 21/01' },
+          { label: 'Essen', val: 'Soeste 22/01' },
+          { label: 'Lastrup', val: 'Soeste 23/01' },
+          { label: 'Lindern', val: 'Soeste 24/01' },
+          { label: 'Friesoythe', val: 'Soeste 31/01' },
+          { label: 'Barßel', val: 'Soeste 32/01' },
+          { label: 'Bösel', val: 'Soeste 33/01' },
+          { label: 'Saterland', val: 'Soeste 34/01' },
           { label: 'Vechta', val: 'Soeste 41/01' },
-          { label: 'Friesoythe', val: 'Soeste 31/01' }
+          { label: 'Bakum', val: 'Soeste 42/01' },
+          { label: 'Goldenstedt', val: 'Soeste 43/01' },
+          { label: 'Visbek', val: 'Soeste 44/01' },
+          { label: 'Lohne', val: 'Soeste 51/01' },
+          { label: 'Dinklage', val: 'Soeste 52/01' },
+          { label: 'Steinfeld', val: 'Soeste 53/01' },
+          { label: 'Damme', val: 'Soeste 61/01' },
+          { label: 'Neuenkirchen-Vörden', val: 'Soeste 62/01' },
+          { label: 'Holdorf', val: 'Soeste 63/01' }
         ]
       },
       'pi_cux': {
@@ -815,15 +883,21 @@
         items: [
           { label: 'Leitstelle', val: 'Otto' },
           { label: 'Cuxhaven', val: 'Bake 30/01' },
-          { label: 'Hemmoor', val: 'Bake 45/01' },
-          { label: 'Cadenberge', val: 'Bake 46/01' },
-          { label: 'Lamstedt', val: 'Bake 47/01' },
+          { label: 'Ihlienworth', val: 'Bake 31/01' },
+          { label: 'Altenwalde', val: 'Bake 32/01' },
+          { label: 'Otterndorf', val: 'Bake 33/01' },
+          { label: 'Nordholz', val: 'Bake 34/01' },
           { label: 'Schiffdorf', val: 'Bake 36/01' },
           { label: 'Langen', val: 'Bake 37/01' },
+          { label: 'Dorum', val: 'Bake 38/01' },
+          { label: 'Bad Bederkesa', val: 'Bake 39/01' },
           { label: 'Loxstedt', val: 'Bake 41/01' },
           { label: 'Beverstedt', val: 'Bake 42/01' },
-          { label: 'Hagen', val: 'Bake 43/01' },
-          { label: 'Geestland', val: 'Bake 49/01' }
+          { label: 'Langen', val: 'Bake 43/01' },
+          { label: 'Hemmor', val: 'Bake 45/01' },
+          { label: 'Caldenberge', val: 'Bake 46/01' },
+          { label: 'Lamstedt', val: 'Bake 47/01' },
+          { label: 'PK BAB (Geestland)', val: 'Bake 49/01' }
         ]
       },
       'pi_ver': {
@@ -833,9 +907,21 @@
         items: [
           { label: 'Leitstelle', val: 'Otto' },
           { label: 'Verden', val: 'Aller 10/01' },
-          { label: 'PK BAB', val: 'Aller 19/01' },
-          { label: 'Achim', val: 'Aller 30/01' },
-          { label: 'Osterholz', val: 'Aller 40/01' }
+          { label: 'Kirchlinteln', val: 'Aller 11/01' },
+          { label: 'Langwedel', val: 'Aller 12/01' },
+          { label: 'Dörverden', val: 'Aller 13/01' },
+          { label: 'Achim', val: 'Aller 14/01' },
+          { label: 'Thedinghausen', val: 'Aller 15/01' },
+          { label: 'Ottersberg', val: 'Aller 16/01' },
+          { label: 'Oyten', val: 'Aller 17/01' },
+          { label: 'PK BAB (Langwedel)', val: 'Aller 19/01' },
+          { label: 'Osterholz', val: 'Aller 40/01' },
+          { label: 'Hambergen', val: 'Aller 41/01' },
+          { label: 'Ritterhude', val: 'Aller 42/01' },
+          { label: 'Lilienthal', val: 'Aller 44/01' },
+          { label: 'Worpswede', val: 'Aller 45/01' },
+          { label: 'Grasberg', val: 'Aller 46/01' },
+          { label: 'Schwanewede', val: 'Aller 48/01' }
         ]
       },
       'pi_dh': {
@@ -855,7 +941,7 @@
           { label: 'Siedenburg', val: 'Münte 39/01' },
           { label: 'Syke', val: 'Münte 41/01' },
           { label: 'Bassum', val: 'Münte 42/01' },
-          { label: 'Bruchhausen', val: 'Münte 43/01' },
+          { label: 'Bruchhausen-Vilsen', val: 'Münte 43/01' },
           { label: 'Twistringen', val: 'Münte 44/01' },
           { label: 'Weyhe', val: 'Münte 46/01' },
           { label: 'Stuhr', val: 'Münte 47/01' }
@@ -1535,7 +1621,21 @@
           const btn = document.createElement('button');
           btn.className = 'btn';
           btn.innerHTML = `<span>${item.label}</span><span class="btn-arrow">&#8250;</span>`;
-          btn.onclick = () => navigateTo(item.target);
+          btn.onclick = () => {
+            // Navigate to subpage if target specified
+            if (item.target) {
+              navigateTo(item.target);
+              return;
+            }
+            // Open image file in a new tab if img specified
+            if (item.img) {
+              // Use relative path; opens in new tab/window
+              window.open(item.img, '_blank');
+              return;
+            }
+            // Fallback: notify user
+            alert('Aktion nicht definiert für: ' + item.label);
+          };
           appViewEl.appendChild(btn);
         });
       } 
