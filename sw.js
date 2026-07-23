@@ -1,9 +1,20 @@
-const CACHE_NAME = 'streifenhelfer-v1';
+const CACHE_NAME = 'streifenhelfer-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './manifest.json',
-  './icon-192.png'
+  './icon-192.png',
+  './bild1.png',
+  './bild2.png',
+  './bild3.png',
+  './bild4.png',
+  './bild5.png',
+  './bild6.png',
+  './bild7.png',
+  './bild8.png',
+  './bild9.png',
+  './bild10.png',
+  './bild11.png'
 ];
 
 self.addEventListener('install', (event) => {
