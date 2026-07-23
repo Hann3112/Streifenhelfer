@@ -350,7 +350,8 @@
           { label: 'Motorrad', target: 'vk_motorrad' },
           { label: 'Ausländische Fahrerlaubnis', target: 'vk_ausland' },
           { label: 'E-Scooter', target: 'vk_escooter' },
-          { label: 'Fahrrad', target: 'vk_fahrrad' }
+          { label: 'Fahrrad', target: 'vk_fahrrad' },
+          { label: 'Liste gebräuchlicher Tatbestände', pdf: 'tatbestand.pdf' }
         ]
       },
       'vk_pkw': {
@@ -592,21 +593,30 @@
         type: 'buttons',
         items: [
           { label: 'Sipro', target: 'esd_sipro' },
-          { label: 'Blutentnahme', target: 'esd_blutentnahme' }
+          { label: 'Blutentnahme', target: 'esd_blutentnahme' },
+          { label: 'Belehrung/Merkblatt StP2', url: 'https://qrdoc.innovation-hub-niedersachsen.de/' }
         ]
       },
       'esd_sipro': {
         title: 'Sipro',
-        type: 'cards',
+        type: 'buttons',
         items: [
-          { label: 'Info', val: 'Sipro Informationen hier eintragen.' }
+          { label: 'Sipro Teil A', img: 'siproa.png' },
+          { label: 'Sipro Teil B', img: 'siprob.png' }
         ]
       },
       'esd_blutentnahme': {
         title: 'Blutentnahme',
         type: 'cards',
         items: [
-          { label: 'Info', val: 'Blutentnahme Informationen hier eintragen.' }
+          { label: 'Schritt 1', val: 'Blutentnahme als Maßnahme erfassen' },
+          { label: 'Schritt 2', val: 'Blutprobe anlegen' },
+          { label: 'Schritt 3', val: 'Untersuchungsantrag anlegen' },
+          { label: 'Schritt 4', val: 'Asservat hinzufügen' },
+          { label: 'Schritt 5', val: 'Untersuchungsstelle hinzufügen' },
+          { label: 'Schritt 6', val: 'Person hinzufügen' },
+          { label: 'Schritt 7', val: 'Untersuchung bearbeiten' },
+          { label: 'Schritt 8', val: 'QS-Freigabe' }
         ]
       },
       'mofa_fehlt': {
@@ -1713,8 +1723,17 @@
             }
             // Open image file in a new tab if img specified
             if (item.img) {
-              // Use relative path; opens in new tab/window
               window.open(item.img, '_blank');
+              return;
+            }
+            // Open PDF in a new tab if pdf specified
+            if (item.pdf) {
+              window.open(item.pdf, '_blank');
+              return;
+            }
+            // Open URL in a new tab if url specified
+            if (item.url) {
+              window.open(item.url, '_blank');
               return;
             }
             // Fallback: notify user
