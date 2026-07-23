@@ -533,6 +533,90 @@
           { label: 'Nicht EU-Fahrerlaubnis', target: 'fe_non_eu' }
         ]
       },
+      'vk_fahrrad': {
+        title: 'Fahrrad',
+        type: 'cards',
+        items: [
+          { label: 'ohne Licht gefahren', val: '(117103) 15€' },
+          { label: 'kein Licht am Fahrrad vorhanden', val: '(367100) 20€' },
+          { label: 'freihändig gefahren', val: '(123006) 5€' },
+          { label: 'Gehör durch Geräte beeinträchtigt', val: '(123106) 10€' },
+          { label: 'Handy benutzt', val: '(123172) 55€' },
+          { label: 'Rotlicht missachtet unter 1 Sek.', val: '(137612) 60€ 1 Punkt' },
+          { label: 'Rotlicht missachtet über 1 Sek.', val: '(137624) 100€ 1 Punkt' },
+          { label: 'Fahrrad ohne Klingel geführt', val: '(364100) 15€' },
+          { label: 'Fahrrad ohne funktionstüchtige Bremsen geführt', val: '(365000) 10€' }
+        ]
+      },
+      'moto_tech': {
+        title: 'Technische Kontrolle (Motorrad)',
+        type: 'cards',
+        items: [
+          { label: 'Krad am Tag ohne Licht geführt', val: '(117136) 10€' }
+        ]
+      },
+      'moto_doku': {
+        title: 'Dokumentenkontrolle (Motorrad)',
+        type: 'doc_buttons',
+        items: [
+          { label: 'Führerschein', target: 'fs_fehlt' },
+          { label: 'Fahrzeugschein', target: 'fzs_fehlt' },
+          { label: 'Mofa Prüfbescheinigung', target: 'mofa_fehlt' }
+        ]
+      },
+      'moto_ausr': {
+        title: 'Ausrüstung (Motorrad)',
+        type: 'cards',
+        items: [
+          { label: 'Helm nicht getragen', val: '(121178) 15€' }
+        ]
+      },
+      'fe_eu': {
+        title: 'EU-Fahrerlaubnis',
+        type: 'cards',
+        items: [
+          { label: 'Hinweis', val: 'EU Fahrerlaubnisse sind entsprechend den gesetzlichen Bestimmungen als gleichwertig zu deutschen Fahrerlaubnissen zu sehen.' }
+        ]
+      },
+      'fe_non_eu': {
+        title: 'Nicht EU-Fahrerlaubnis',
+        type: 'cards',
+        items: [
+          { label: 'Gültigkeit nach Wohnsitzmeldung', val: 'Ab Gründung eines ordentlichen Wohnsitzes in Deutschland ist die nicht EU-FE noch 6 Monate gültig. (Die Frist kann in Ausnahmefällen auf 12 Monate verlängert werden)' },
+          { label: 'Nationaler Führerschein', val: 'Der nationale Führerschein muss zwingend vorliegen.' },
+          { label: 'Internationale Übersetzung', val: 'Zusätzlich ist ein internationaler Führerschein ODER eine amtliche Übersetzung notwendig.' }
+        ]
+      },
+      'esd': {
+        title: 'Maßnahmen ESD',
+        type: 'buttons',
+        items: [
+          { label: 'Sipro', target: 'esd_sipro' },
+          { label: 'Blutentnahme', target: 'esd_blutentnahme' }
+        ]
+      },
+      'esd_sipro': {
+        title: 'Sipro',
+        type: 'cards',
+        items: [
+          { label: 'Info', val: 'Sipro Informationen hier eintragen.' }
+        ]
+      },
+      'esd_blutentnahme': {
+        title: 'Blutentnahme',
+        type: 'cards',
+        items: [
+          { label: 'Info', val: 'Blutentnahme Informationen hier eintragen.' }
+        ]
+      },
+      'mofa_fehlt': {
+        title: 'Mofa Prüfbescheinigung - Fehlt',
+        type: 'cards',
+        items: [
+          { label: 'nicht mitgeführt', val: '(205100) 10€' },
+          { label: 'nicht ausgehändigt', val: '(205106) 10€' }
+        ]
+      },
 
       // --- FUNKRUFNAMEN ---
       'tarnschieber': {
@@ -701,17 +785,17 @@
         title: 'KB Ausfüllhilfe',
         type: 'buttons',
         items: [
-          { label: 'Button 1', img: 'bild1.png' },
-          { label: 'Button 2', img: 'bild2.png' },
-          { label: 'Button 3', img: 'bild3.png' },
-          { label: 'Button 4', img: 'bild4.png' },
-          { label: 'Button 5', img: 'bild5.png' },
-          { label: 'Button 6', img: 'bild6.png' },
-          { label: 'Button 7', img: 'bild7.png' },
-          { label: 'Button 8', img: 'bild8.png' },
-          { label: 'Button 9', img: 'bild9.png' },
-          { label: 'Button 10', img: 'bild10.png' },
-          { label: 'Button 11', img: 'bild11.png' }
+          { label: '1. Einstiegsmaßnahme', img: 'bild1.png' },
+          { label: 'Ort/ Beamte etc.', img: 'bild2.png' },
+          { label: '2. Polizeilicher Anlass', img: 'bild3.png' },
+          { label: '3. Beschuldigter', img: 'bild4.png' },
+          { label: '4. Sachverhalt ', img: 'bild5.png' },
+          { label: '5. Zeugen/Geschädigte etc.', img: 'bild6.png' },
+          { label: '6. Eingriffsmaßnahmen', img: 'bild7.png' },
+          { label: 'Unterschrift', img: 'bild8.png' },
+          { label: '7. Verbleib Personen/Sachen', img: 'bild9.png' },
+          { label: '8. Sicherstellung/Beschlagnahme', img: 'bild10.png' },
+          { label: '9. Verbleib der in Punkt 8 genannten Gegenstände', img: 'bild11.png' }
         ]
       },
 
