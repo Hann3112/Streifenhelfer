@@ -138,6 +138,37 @@
       outline: none;
       background: #ffffff;
       color: var(--text-dark);
+      padding-right: 44px;
+    }
+
+    .search-bar-inner {
+      position: relative;
+    }
+
+    .search-clear-btn {
+      position: absolute;
+      top: 50%;
+      right: 14px;
+      transform: translateY(-50%);
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 6px;
+      line-height: 1;
+      border-radius: 50%;
+    }
+
+    .search-clear-btn:hover {
+      color: var(--police-blue);
+    }
+
+    .search-meta {
+      margin-top: 8px;
+      color: #dbeafe;
+      font-size: 13px;
+      min-height: 1.2em;
     }
 
     /* Main Content Area */
@@ -220,6 +251,17 @@
       align-items: center;
       font-size: 14px;
       line-height: 1.4;
+      cursor: default;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card.clickable {
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
     }
 
     .card-title {
@@ -284,6 +326,96 @@
       padding: 20px;
       font-style: italic;
     }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 80px;
+      transform: translateX(-50%) translateY(0);
+      min-width: 180px;
+      max-width: 90%;
+      padding: 12px 16px;
+      background: rgba(15, 23, 42, 0.95);
+      color: #ffffff;
+      border-radius: 999px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+      font-size: 13px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 50;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-6px);
+    }
+
+    @media (max-width: 540px) {
+      header {
+        padding: 12px 14px;
+      }
+
+      .header-title {
+        font-size: 15px;
+      }
+
+      .app-subtitle {
+        font-size: 9px;
+      }
+
+      .search-bar-container {
+        padding: 0 14px 10px;
+      }
+
+      .search-input {
+        font-size: 14px;
+        padding: 12px 14px;
+      }
+
+      .grid-container {
+        gap: 10px;
+        padding: 0 0 4px;
+      }
+
+      .btn {
+        padding: 14px 16px;
+        font-size: 14px;
+      }
+
+      .card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .card-value {
+        width: 100%;
+        text-align: right;
+        word-break: break-word;
+      }
+
+      .doc-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .btn-danger {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .bottom-bar {
+        padding: 10px 14px;
+      }
+
+      .btn-back {
+        font-size: 15px;
+        padding: 13px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -301,7 +433,11 @@
 
   <!-- Search Input Bar -->
   <div class="search-bar-container" id="search-container">
-    <input type="text" class="search-input" id="search-input" placeholder="Dienststelle oder Kennung suchen..." autocomplete="off">
+    <div class="search-bar-inner">
+      <input type="text" class="search-input" id="search-input" placeholder="Dienststelle oder Kennung suchen..." autocomplete="off">
+      <button class="search-clear-btn" id="search-clear" type="button" aria-label="Suche löschen">&times;</button>
+    </div>
+    <div class="search-meta" id="search-meta" aria-live="polite"></div>
   </div>
 
   <!-- Main Content -->
@@ -315,6 +451,8 @@
       &#8592; Zurück
     </button>
   </div>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
 
   <script>
     // App Data Structure
@@ -1656,14 +1794,29 @@
     const searchToggleBtn = document.getElementById('search-toggle');
     const searchContainer = document.getElementById('search-container');
     const searchInput = document.getElementById('search-input');
+    const searchClearBtn = document.getElementById('search-clear');
+    const searchMetaEl = document.getElementById('search-meta');
+    const toastEl = document.getElementById('toast');
 
-    // Initialize App
     function init() {
       renderPage();
 
       searchInput.addEventListener('input', (e) => {
         currentFilter = e.target.value.toLowerCase().trim();
         filterCurrentCards();
+      });
+
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          hideSearch();
+        }
+      });
+
+      searchClearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        currentFilter = '';
+        filterCurrentCards();
+        searchInput.focus();
       });
 
       searchToggleBtn.addEventListener('click', () => {
@@ -1719,6 +1872,7 @@
       // Toggle Search Icon Visibility
       if (pageData.hasSearch) {
         searchToggleBtn.style.display = 'flex';
+        searchInput.placeholder = `Suche ${pageData.title}…`;
       } else {
         searchToggleBtn.style.display = 'none';
       }
@@ -1813,6 +1967,26 @@
         }
       }
 
+      if (item.val) {
+        card.classList.add('clickable');
+        card.tabIndex = 0;
+        card.setAttribute('role', 'button');
+        card.title = 'Klicke oder drücke Enter, um den Wert zu kopieren';
+        card.addEventListener('click', () => {
+          navigator.clipboard.writeText(item.val).then(() => {
+            showToast(`Kopiert: ${item.val}`);
+          }).catch(() => {
+            showToast('Kopieren fehlgeschlagen');
+          });
+        });
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.click();
+          }
+        });
+      }
+
       appViewEl.appendChild(card);
 
         if (matches) visibleCount++;
@@ -1824,6 +1998,18 @@
         noRes.textContent = 'Keine Ergebnisse gefunden.';
         appViewEl.appendChild(noRes);
       }
+
+      return visibleCount;
+    }
+
+    function updateSearchMeta(visibleCount) {
+      if (!searchMetaEl) return;
+      if (!currentFilter) {
+        searchMetaEl.textContent = '';
+        return;
+      }
+      const label = visibleCount === 1 ? 'Eintrag' : 'Einträge';
+      searchMetaEl.textContent = `${visibleCount} ${label} gefunden`;
     }
 
     function filterCurrentCards() {
@@ -1834,7 +2020,8 @@
       // If current page shows cards or BEPO special cards, render and filter normally
       if (pageData.type === 'cards' || pageData.type === 'bepo_special') {
         appViewEl.innerHTML = '';
-        renderCards(pageData.items);
+        const visibleCount = renderCards(pageData.items);
+        updateSearchMeta(visibleCount);
         if (pageData.type === 'bepo_special' && pageData.extraButton && !currentFilter) {
           const btn = document.createElement('button');
           btn.className = 'btn';
@@ -1891,7 +2078,8 @@
         });
 
         appViewEl.innerHTML = '';
-        renderCards(aggregated);
+        const visibleCount = renderCards(aggregated);
+        updateSearchMeta(visibleCount);
         return;
       }
     }
