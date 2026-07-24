@@ -754,6 +754,7 @@
       'funk': {
         title: 'Funkrufnamen',
         type: 'buttons',
+        hasSearch: true,
         items: [
           { label: 'PD Oldenburg', target: 'pd_oldenburg' },
           { label: 'PD Osnabrück', target: 'pd_osnabrueck' },
@@ -1375,6 +1376,7 @@
         type: 'cards',
         hasSearch: true,
         items: [
+          { label: 'Leitstelle', val: 'Hanno' },
           { label: 'PI Burgdorf', val: 'Hanno 60/01' },
           { label: 'Uetze', val: 'Hanno 61/01' },
           { label: 'Mellendorf', val: 'Hanno 62/01' },
@@ -1403,6 +1405,7 @@
         type: 'cards',
         hasSearch: true,
         items: [
+          { label: 'Leitstelle', val: 'Horst' },
           { label: 'Reiterstaffel Braunschweig', val: 'Horst 17/01' },
           { label: 'PK BAB Braunschweig', val: 'Bremse 19/01' },
           { label: 'PK Braunschweig Mitte', val: 'Bremse 20/01' },
@@ -1425,6 +1428,7 @@
         type: 'cards',
         hasSearch: true,
         items: [
+          { label: 'Leitstelle', val: 'Horst' },
           { label: 'Gifhorn', val: 'Ise 20/01' },
           { label: 'Meine', val: 'Ise 21/01' },
           { label: 'Isenbüttel', val: 'Ise 22/01' },
@@ -1513,23 +1517,23 @@
         items: [
           { label: 'Leitstelle', val: 'Süntel' },
           { label: 'Hildesheim', val: 'Hilde 30/01' },
-          { label: 'Hildesheim Mitte', val: 'Hilde 31/01' },
+          { label: 'Hildesheim Innenstadtwache', val: 'Hilde 31/01' },
           { label: 'Diekholzen', val: 'Hilde 32/01' },
           { label: 'Alfeld', val: 'Hilde 33/01' },
           { label: 'Duingen', val: 'Hilde 34/01' },
           { label: 'Freden', val: 'Hilde 35/01' },
-          { label: 'Lamspringe', val: 'Hilde 36/01' },
-          { label: 'Sibbesse', val: 'Hilde 37/01' },
+          { label: 'Sibbesse', val: 'Hilde 36/01' },
           { label: 'Sarstedt', val: 'Hilde 39/01' },
           { label: 'Algermissen', val: 'Hilde 40/01' },
           { label: 'Giesen', val: 'Hilde 41/01' },
           { label: 'Harsum', val: 'Hilde 42/01' },
           { label: 'Nordstemmen', val: 'Hilde 43/01' },
-          { label: 'Bad Salzdetfurth', val: 'Hilde 44/01' },
+          { label: 'Salzdetfurth', val: 'Hilde 44/01' },
           { label: 'Bockenem', val: 'Hilde 45/01' },
           { label: 'Holle', val: 'Hilde 46/01' },
           { label: 'Schellerten', val: 'Hilde 47/01' },
           { label: 'Söhlde', val: 'Hilde 48/01' },
+          { label: 'Lamspringe', val: 'Hilde 49/01' },
           { label: 'Elze', val: 'Hilde 50/01' },
           { label: 'Gronau', val: 'Hilde 51/01' },
           { label: 'ESD BAB', val: 'Hilde 19/01' }
@@ -1548,13 +1552,11 @@
           { label: 'Uslar', val: 'Rhume 40/01' },
           { label: 'Bodenfelde', val: 'Rhume 41/01' },
           { label: 'Hardegsen', val: 'Rhume 34/01' },
-          { label: 'Osterode', val: 'Rhume 50/01' },
-          { label: 'Herzberg', val: 'Rhume 56/01' },
-          { label: 'Bad Grund', val: 'Rhume 52/01' },
-          { label: 'Hattorf', val: 'Rhume 51/01' },
-          { label: 'Bad Lauterberg', val: 'Rhume 53/01' },
-          { label: 'Bad Sachsa', val: 'Rhume 54/01' },
-          { label: 'Walkenried', val: 'Rhume 55/01' }
+          { label: 'Katlenburg', val: 'Rhume 32/01' },
+          { label: 'Moringen', val: 'Rhume 31/01' },
+          { label: 'Nörten-Hardenberg', val: 'Rhume 33/01' },
+          { label: 'Kreiensen', val: 'Rhume 36/01' },
+          { label: 'Kalefeld', val: 'Rhume 37/01' }
         ]
       },
       'pi_goe': {
@@ -1566,9 +1568,24 @@
           { label: 'Göttingen ESD 1 (Groner Landstraße)', val: 'Gerhard 10/01' },
           { label: 'Göttingen Innenstadtwache', val: 'Gerhard 11/01' },
           { label: 'Göttingen ESD 2 (Otto-Hahn-Straße)', val: 'Gerhard 12/01' },
-          { label: 'Autobahnpolizei', val: 'Gerhard 19/01' },
+          { label: 'Rosdorf', val: 'Gerhard 16/01' },
+          { label: 'Adelebsen', val: 'Gerhard 13/01' },
+          { label: 'Bovenden', val: 'Gerhard 14/01' },
+          { label: 'ESD BAB', val: 'Gerhard 19/01' },
           { label: 'Duderstadt', val: 'Gerhard 25/01' },
-          { label: 'Hann. Münden', val: 'Gerhard 21/01' }
+          { label: 'Gieboldehausen', val: 'Gerhard 26/01' },
+          { label: 'Ebergötzen', val: 'Gerhard 27/01' },
+          { label: 'Friedland', val: 'Gerhard 28/01' },
+          { label: 'Hann. Münden', val: 'Gerhard 21/01' },
+          { label: 'Staufenberg', val: 'Gerhard 22/01' },
+          { label: 'Dransfeld', val: 'Gerhard 23/01' },
+          { label: 'Osterode', val: 'Gerhard 50/01' },
+          { label: 'Hattorf', val: 'Gerhard 51/01' },
+          { label: 'Bad Grund', val: 'Gerhard 52/01' },
+          { label: 'Herzberg', val: 'Gerhard 53/01' },
+          { label: 'Bad Lauterberg', val: 'Gerhard 54/01' },
+          { label: 'Bad Sachsa', val: 'Gerhard 55/01' },
+          { label: 'Walkenried', val: 'Gerhard 56/01' }
         ]
       },
       'pi_hm': {
@@ -1578,21 +1595,25 @@
         items: [
           { label: 'Leitstelle', val: 'Süntel' },
           { label: 'Hameln', val: 'Süntel 10/01' },
-          { label: 'Hessisch Oldendorf', val: 'Süntel 11/01' },
-          { label: 'Emmerthal', val: 'Süntel 12/01' },
+          { label: 'Hessisch Oldendorf', val: 'Süntel 12/01' },
+          { label: 'Emmerthal', val: 'Süntel 11/01' },
           { label: 'Bad Münder', val: 'Süntel 13/01' },
           { label: 'Coppenbrügge', val: 'Süntel 14/01' },
           { label: 'Salzhemmendorf', val: 'Süntel 15/01' },
           { label: 'Bad Pyrmont', val: 'Süntel 17/01' },
-          { label: 'Aerzen', val: 'Süntel 18/20' },
+          { label: 'Aerzen', val: 'Süntel 18/01' },
           { label: 'Holzminden', val: 'Süntel 20/01' },
           { label: 'Bevern', val: 'Süntel 21/01' },
           { label: 'Boffzen', val: 'Süntel 22/01' },
           { label: 'Bodenwerder', val: 'Süntel 24/01' },
           { label: 'Polle', val: 'Süntel 25/01' },
           { label: 'Stadtoldendorf', val: 'Süntel 27/01' },
-          { label: 'Delligsen', val: 'Süntel 28/20' },
-          { label: 'Eschershausen', val: 'Süntel 29/20' }
+          { label: 'Delligsen', val: 'Süntel 28/01' },
+          { label: 'Eschershausen', val: 'Süntel 29/01' },
+          { label: 'Stadthagen', val: 'Süntel 30/01' },
+          { label: 'Bad Nenndorf', val: 'Süntel 35/01' },
+          { label: 'Bückeburg', val: 'Süntel 38/01' },
+          { label: 'Rinteln', val: 'Süntel 43/01' }
         ]
       },
       'pi_ni': {
@@ -1602,15 +1623,11 @@
         items: [
           { label: 'Leitstelle', val: 'Süntel' },
           { label: 'Nienburg', val: 'Wieland 10/01' },
-          { label: 'Bad Nenndorf', val: 'Wieland 35/01' },
           { label: 'Lindhorst', val: 'Wieland 32/01' },
           { label: 'Rodenberg', val: 'Wieland 37/01' },
           { label: 'Lauenau', val: 'Wieland 36/01' },
-          { label: 'Bückeburg', val: 'Wieland 38/01' },
           { label: 'Bad Eilssen', val: 'Wieland 39/01' },
           { label: 'Obernkirchen', val: 'Wieland 41/01' },
-          { label: 'Rinteln', val: 'Wieland 43/01' },
-          { label: 'Stadthagen', val: 'Wieland 30/01' },
           { label: 'Nienstädt', val: 'Wieland 40/01' },
           { label: 'Niedernwöhren', val: 'Wieland 33/01' },
           { label: 'Stolzenau', val: 'Wieland 22/01' },
@@ -1812,7 +1829,10 @@
     function filterCurrentCards() {
       const currentKey = historyStack[historyStack.length - 1];
       const pageData = appTree[currentKey];
-      if (pageData && (pageData.type === 'cards' || pageData.type === 'bepo_special')) {
+      if (!pageData) return;
+
+      // If current page shows cards or BEPO special cards, render and filter normally
+      if (pageData.type === 'cards' || pageData.type === 'bepo_special') {
         appViewEl.innerHTML = '';
         renderCards(pageData.items);
         if (pageData.type === 'bepo_special' && pageData.extraButton && !currentFilter) {
@@ -1823,6 +1843,56 @@
           btn.onclick = () => navigateTo(pageData.extraButton.target);
           appViewEl.appendChild(btn);
         }
+        if (pageData.type === 'bepo_special' && pageData.extraButtons && Array.isArray(pageData.extraButtons) && !currentFilter) {
+          pageData.extraButtons.forEach(extra => {
+            if (pageData.extraButton && pageData.extraButton.target === extra.target) return;
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.marginTop = '8px';
+            btn.innerHTML = `<span>${extra.label}</span><span class="btn-arrow">&#8250;</span>`;
+            btn.onclick = () => navigateTo(extra.target);
+            appViewEl.appendChild(btn);
+          });
+        }
+        return;
+      }
+
+      // For buttons pages that enable search (e.g. 'funk'), aggregate child card items
+      // from their target pages and render them so the search can match Dienststellen/Kennung
+      if (pageData.type === 'buttons' && pageData.hasSearch) {
+        const aggregated = [];
+        pageData.items.forEach(btn => {
+          const key = btn.target;
+          if (!key) return;
+          const child = appTree[key];
+          if (!child || !Array.isArray(child.items)) return;
+
+          // If child page already contains cards, collect them
+          if (child.type === 'cards') {
+            child.items.forEach(it => {
+              if (it.label && it.val) aggregated.push({ label: it.label, val: it.val, color: it.color });
+            });
+          }
+
+          // If child is a buttons page (e.g., PD listing PIs), descend one level
+          if (child.type === 'buttons') {
+            child.items.forEach(sub => {
+              const subKey = sub.target;
+              if (!subKey) return;
+              const subChild = appTree[subKey];
+              if (!subChild || !Array.isArray(subChild.items)) return;
+              if (subChild.type === 'cards') {
+                subChild.items.forEach(it => {
+                  if (it.label && it.val) aggregated.push({ label: it.label, val: it.val, color: it.color });
+                });
+              }
+            });
+          }
+        });
+
+        appViewEl.innerHTML = '';
+        renderCards(aggregated);
+        return;
       }
     }
 
